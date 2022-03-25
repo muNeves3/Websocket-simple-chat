@@ -1,0 +1,26 @@
+[
+  {
+    "value": "-1",
+    "name": "Selecione a sala"
+  },
+  {
+    "value": "node",
+    "name": "Node.JS"
+  },
+  {
+    "value": "javascript",
+    "name": "Javascript"
+  },
+  {
+    "value": "csharp",
+    "name": "C#"
+  },
+  {
+    "value": "react",
+    "name": "React"
+  },
+  {
+    "value": "reactnative",
+    "name": "React Native"
+  }
+]

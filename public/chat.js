@@ -5,7 +5,7 @@ const username = urlParams.get("username");
 const room = urlParams.get("select_room");
 const usernameDiv = document.getElementById("username");
 
-usernameDiv.innerHTML = `Olá, ${username} - Você entrou na sala ${room}`;
+usernameDiv.innerHTML = `Olá, ${username} - Você entrou na sala <strong>${room}<strong>`;
 
 socket.emit(
   "select_room",
@@ -46,11 +46,11 @@ function createMessage(data) {
               <span>${message} - ${dayjs(createdAt).format(
     "DD/MM HH:mm"
   )}</span>
-          </label>
+          </label>  
       </div>
       `;
 }
 
 document.getElementById("logout").addEventListener("click", (e) => {
-    window.location.href = "index.html"
+  window.location.href = "index.html";
 });
