@@ -17,6 +17,11 @@ const users: IRoomUser[] = [];
 const messages: IRoomMessage[] = [];
 
 io.on("connection", (socket) => {
+  socket.on("new_room", data => {
+    io.emit("new_room", data)
+    console.log(data)
+  });
+
   socket.on("select_room", (data, callback) => {
     const { room, username } = data;
 

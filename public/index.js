@@ -1,3 +1,4 @@
+const socket = io();
 
 const jsonRoomsData = fetch("../rooms.json")
   .then((response) => {
@@ -30,6 +31,23 @@ document.getElementById("add_room").addEventListener("click", (e) => {
   }
 
   var newRoomName = div.children[1].value;
+  // var optionElement = document.createElement("option");
+  // optionElement.value = newRoomName;
+  // optionElement.innerHTML = newRoomName;
+  // select.appendChild(optionElement);
+
+  div.innerHTML = `
+    <label for="form.label">Digite seu usuário</label>
+    <input type="text" name="username" placeholder="username" />
+  `;
+  
+  
+  socket.emit("new_room", {newRoomName})
+});
+
+socket.on("new_room", data => {
+  const {newRoomName} = data;
+  var select = document.getElementById("select_room");
   var optionElement = document.createElement("option");
   optionElement.value = newRoomName;
   optionElement.innerHTML = newRoomName;
@@ -38,5 +56,6 @@ document.getElementById("add_room").addEventListener("click", (e) => {
   div.innerHTML = `
     <label for="form.label">Digite seu usuário</label>
     <input type="text" name="username" placeholder="username" />
-  `; 
-});
+  `;
+})
+
